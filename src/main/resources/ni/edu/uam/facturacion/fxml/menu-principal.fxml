@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="ni.edu.uam.facturacion.controller.MenuPrincipalController">
+
+    <top>
+        <VBox>
+            <MenuBar>
+                <menus>
+                    <Menu text="Archivo">
+                        <items>
+                            <MenuItem fx:id="mnuProductos" text="Productos" onAction="#abrirProductos"/>
+                            <SeparatorMenuItem/>
+                            <MenuItem fx:id="mnuSalir" text="Salir" onAction="#salir"/>
+                        </items>
+                    </Menu>
+                    <Menu text="Ayuda">
+                        <items>
+                            <MenuItem text="Acerca de..."/>
+                        </items>
+                    </Menu>
+                </menus>
+            </MenuBar>
+
+            <ToolBar>
+                <items>
+                    <Button fx:id="btnProductos" text="Productos" onAction="#abrirProductos"/>
+                    <Button fx:id="btnSalir" text="Salir" onAction="#salir"/>
+                </items>
+            </ToolBar>
+        </VBox>
+    </top>
+
+    <center>
+        <Label text="Sistema de facturación"
+               style="-fx-font-size: 28px; -fx-font-weight: bold;">
+            <BorderPane.alignment>CENTER</BorderPane.alignment>
+        </Label>
+    </center>
+
+    <padding>
+        <Insets top="0" right="0" bottom="0" left="0"/>
+    </padding>
+</BorderPane>
