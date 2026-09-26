@@ -50,17 +50,24 @@
                 <Label text="Activo:" GridPane.rowIndex="2" GridPane.columnIndex="2"/>
                 <CheckBox fx:id="chkActivo" GridPane.rowIndex="2" GridPane.columnIndex="3"/>
             </GridPane>
+
+            <!-- Imagen + Botones -->
             <HBox spacing="15" alignment="CENTER_LEFT">
                 <ImageView fx:id="imgProducto" fitHeight="120" fitWidth="120"
                            preserveRatio="true"
                            style="-fx-border-color: gray; -fx-border-width: 1;"/>
+
                 <VBox spacing="10">
-                    <Button fx:id="btnImagen" text="Seleccionar imagen"
-                            onAction="#seleccionarImagen"/>
-                    <Button fx:id="btnGuardar" text="Guardar" onAction="#guardar"/>
-                    <Button fx:id="btnCerrar" text="Cerrar" onAction="#cerrar"/>
+                    <Button fx:id="btnImagen"     text="Seleccionar imagen" onAction="#seleccionarImagen"/>
+                    <Button fx:id="btnGuardar"    text="Guardar"            onAction="#guardar"/>
+                    <Button fx:id="btnActualizar" text="Actualizar"         onAction="#actualizar"/>
+                    <Button fx:id="btnEliminar"   text="Eliminar"           onAction="#eliminar"/>
+                    <Button fx:id="btnLimpiar"    text="Limpiar"            onAction="#limpiar"/>
+                    <Button fx:id="btnCerrar"     text="Cerrar"             onAction="#cerrar"/>
                 </VBox>
             </HBox>
+
+            <!-- Tabla -->
             <TableView fx:id="tblProductos" VBox.vgrow="ALWAYS">
                 <columns>
                     <TableColumn fx:id="colCodigo"     text="Código"     prefWidth="100"/>
