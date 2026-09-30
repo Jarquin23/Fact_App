@@ -1,90 +1,88 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
-<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.geometry.Insets?>
 
-<BorderPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="ni.edu.uam.facturacion.controller.ProductoController">
+<BorderPane xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ni.edu.uam.facturacion.controller.ProductoController">
 
     <top>
-        <Label text="Gestión de productos"
-               style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-padding: 10;">
+        <Label style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-padding: 10;" text="Gestión de productos">
             <BorderPane.alignment>CENTER</BorderPane.alignment>
         </Label>
     </top>
     <center>
         <VBox spacing="15">
             <padding>
-                <Insets top="15" right="15" bottom="15" left="15"/>
+                <Insets bottom="15" left="15" right="15" top="15" />
             </padding>
+            <ToolBar>
+                <items>
+                    <Button fx:id="btnImagen" onAction="#seleccionarImagen" style="-fx-background-color: orange;" text="🖼️ Imagen" />
+                    <Separator />
+                    <Button fx:id="btnGuardar" onAction="#guardar" style="-fx-background-color: green;" text="💾 Guardar" textFill="WHITE" />
+                    <Button fx:id="btnActualizar" onAction="#actualizar" style="-fx-background-color: skyblue;" text="✏️ Actualizar" />
+                    <Button fx:id="btnEliminar" onAction="#eliminar" style="-fx-background-color: red;" text="🗑️ Eliminar" />
+                    <Button fx:id="btnLimpiar" onAction="#limpiar" style="-fx-background-color: gray;" text="🧹 Limpiar" />
+                    <Separator />
+                    <Button fx:id="btnCerrar" onAction="#cerrar" style="-fx-background-color: black;" text="❌ Cerrar" textFill="WHITE" />
+                </items>
+            </ToolBar>
             <GridPane hgap="10" vgap="10">
                 <columnConstraints>
-                    <ColumnConstraints minWidth="100" prefWidth="120"/>
-                    <ColumnConstraints hgrow="ALWAYS"/>
-                    <ColumnConstraints minWidth="100" prefWidth="120"/>
+                    <ColumnConstraints minWidth="100.0" prefWidth="120.0" />
+                    <ColumnConstraints hgrow="ALWAYS" />
+                    <ColumnConstraints minWidth="100.0" prefWidth="120.0" />
+               <ColumnConstraints />
                 </columnConstraints>
 
-                <Label text="Código:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
-                <TextField fx:id="txtCodigo" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+                <Label text="Código:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                <TextField fx:id="txtCodigo" GridPane.columnIndex="1" GridPane.rowIndex="0" />
 
-                <Label text="Nombre:" GridPane.rowIndex="0" GridPane.columnIndex="2"/>
-                <TextField fx:id="txtNombre" GridPane.rowIndex="0" GridPane.columnIndex="3">
-                    <GridPane.columnSpan>1</GridPane.columnSpan>
-                </TextField>
+                <Label text="Nombre:" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                <TextField fx:id="txtNombre" GridPane.columnIndex="3" GridPane.rowIndex="0" />
 
-                <Label text="Categoría:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
-                <ComboBox fx:id="cmbCategoria" maxWidth="Infinity"
-                          GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+                <Label text="Categoría:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                <ComboBox fx:id="cmbCategoria" maxWidth="Infinity" GridPane.columnIndex="1" GridPane.rowIndex="1" />
 
-                <Label text="Precio:" GridPane.rowIndex="1" GridPane.columnIndex="2"/>
-                <TextField fx:id="txtPrecio" GridPane.rowIndex="1" GridPane.columnIndex="3"/>
+                <Label text="Precio:" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                <TextField fx:id="txtPrecio" GridPane.columnIndex="3" GridPane.rowIndex="1" />
 
-                <Label text="Existencia:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
-                <TextField fx:id="txtExistencia" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+                <Label text="Existencia:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                <TextField fx:id="txtExistencia" GridPane.columnIndex="1" GridPane.rowIndex="2" />
 
-                <Label text="Activo:" GridPane.rowIndex="2" GridPane.columnIndex="2"/>
-                <CheckBox fx:id="chkActivo" GridPane.rowIndex="2" GridPane.columnIndex="3"/>
+                <Label text="Activo:" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                <CheckBox fx:id="chkActivo" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+            <rowConstraints>
+               <RowConstraints />
+               <RowConstraints />
+               <RowConstraints />
+            </rowConstraints>
             </GridPane>
-            <!-- Imagen + Botones -->
-            <HBox spacing="15" alignment="CENTER_LEFT">
-                <ImageView fx:id="imgProducto" fitHeight="120" fitWidth="120"
-                           preserveRatio="true"
-                           style="-fx-border-color: gray; -fx-border-width: 1;"/>
-
-                <VBox spacing="10">
-                    <Button fx:id="btnImagen"     text="Seleccionar imagen" onAction="#seleccionarImagen"/>
-                    <Button fx:id="btnGuardar"    text="Guardar"            onAction="#guardar"/>
-                    <Button fx:id="btnActualizar" text="Actualizar"         onAction="#actualizar"/>
-                    <Button fx:id="btnEliminar"   text="Eliminar"           onAction="#eliminar"/>
-                    <Button fx:id="btnLimpiar"    text="Limpiar"            onAction="#limpiar"/>
-                    <Button fx:id="btnCerrar"     text="Cerrar"             onAction="#cerrar"/>
-                </VBox>
+            <HBox alignment="CENTER_LEFT" spacing="15">
+                <ImageView fx:id="imgProducto" fitHeight="100" fitWidth="100" preserveRatio="true" style="-fx-border-color: gray; -fx-border-width: 1;" />
             </HBox>
-            <!-- Filtros y búsqueda -->
-            <HBox spacing="10" alignment="CENTER_LEFT">
-                <Label text="Buscar:"/>
-                <TextField fx:id="txtBuscar" promptText="Código, nombre o categoría" prefWidth="250"/>
+            <HBox alignment="CENTER_LEFT" spacing="10">
+                <Label text="Buscar:" />
+                <TextField fx:id="txtBuscar" prefWidth="250" promptText="Código, nombre o categoría" />
 
-                <Label text="Estado:"/>
-                <ComboBox fx:id="cmbFiltroEstado" prefWidth="120"/>
+                <Label text="Estado:" />
+                <ComboBox fx:id="cmbFiltroEstado" prefWidth="120" />
 
-                <Label text="Categoría:"/>
-                <ComboBox fx:id="cmbFiltroCategoria" prefWidth="150"/>
+                <Label text="Categoría:" />
+                <ComboBox fx:id="cmbFiltroCategoria" prefWidth="150" />
 
-                <Button fx:id="btnLimpiarFiltros" text="Limpiar filtros" onAction="#limpiarFiltros"/>
+                <Button fx:id="btnLimpiarFiltros" onAction="#limpiarFiltros" text="Limpiar filtros" />
             </HBox>
-            <!-- Tabla -->
             <TableView fx:id="tblProductos" VBox.vgrow="ALWAYS">
                 <columns>
-                    <TableColumn fx:id="colCodigo"     text="Código"     prefWidth="100"/>
-                    <TableColumn fx:id="colNombre"     text="Nombre"     prefWidth="180"/>
-                    <TableColumn fx:id="colCategoria"  text="Categoría"  prefWidth="120"/>
-                    <TableColumn fx:id="colPrecio"     text="Precio"     prefWidth="100"/>
-                    <TableColumn fx:id="colExistencia" text="Existencia" prefWidth="90"/>
-                    <TableColumn fx:id="colActivo"     text="Activo"     prefWidth="80"/>
+                    <TableColumn fx:id="colCodigo" prefWidth="100" text="Código" />
+                    <TableColumn fx:id="colNombre" prefWidth="180" text="Nombre" />
+                    <TableColumn fx:id="colCategoria" prefWidth="120" text="Categoría" />
+                    <TableColumn fx:id="colPrecio" prefWidth="100" text="Precio" />
+                    <TableColumn fx:id="colExistencia" prefWidth="90" text="Existencia" />
+                    <TableColumn fx:id="colActivo" prefWidth="80" text="Activo" />
                 </columns>
             </TableView>
         </VBox>
