@@ -15,13 +15,11 @@
             <BorderPane.alignment>CENTER</BorderPane.alignment>
         </Label>
     </top>
-
     <center>
         <VBox spacing="15">
             <padding>
                 <Insets top="15" right="15" bottom="15" left="15"/>
             </padding>
-
             <GridPane hgap="10" vgap="10">
                 <columnConstraints>
                     <ColumnConstraints minWidth="100" prefWidth="120"/>
@@ -50,7 +48,6 @@
                 <Label text="Activo:" GridPane.rowIndex="2" GridPane.columnIndex="2"/>
                 <CheckBox fx:id="chkActivo" GridPane.rowIndex="2" GridPane.columnIndex="3"/>
             </GridPane>
-
             <!-- Imagen + Botones -->
             <HBox spacing="15" alignment="CENTER_LEFT">
                 <ImageView fx:id="imgProducto" fitHeight="120" fitWidth="120"
@@ -66,7 +63,19 @@
                     <Button fx:id="btnCerrar"     text="Cerrar"             onAction="#cerrar"/>
                 </VBox>
             </HBox>
+            <!-- Filtros y búsqueda -->
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <Label text="Buscar:"/>
+                <TextField fx:id="txtBuscar" promptText="Código, nombre o categoría" prefWidth="250"/>
 
+                <Label text="Estado:"/>
+                <ComboBox fx:id="cmbFiltroEstado" prefWidth="120"/>
+
+                <Label text="Categoría:"/>
+                <ComboBox fx:id="cmbFiltroCategoria" prefWidth="150"/>
+
+                <Button fx:id="btnLimpiarFiltros" text="Limpiar filtros" onAction="#limpiarFiltros"/>
+            </HBox>
             <!-- Tabla -->
             <TableView fx:id="tblProductos" VBox.vgrow="ALWAYS">
                 <columns>
