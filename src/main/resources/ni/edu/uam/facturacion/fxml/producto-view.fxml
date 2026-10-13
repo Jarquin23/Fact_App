@@ -66,6 +66,7 @@
             <HBox alignment="CENTER_LEFT" spacing="10">
                 <Label text="Buscar:" />
                 <TextField fx:id="txtBuscar" prefWidth="250" promptText="Código, nombre o categoría" />
+                <Button fx:id="btnBuscar" onAction="#buscar" text="🔍 Buscar" />
 
                 <Label text="Estado:" />
                 <ComboBox fx:id="cmbFiltroEstado" prefWidth="120" />

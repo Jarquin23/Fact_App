@@ -131,4 +131,24 @@ public class ProductoDAO {
                 rs.getString("ruta_imagen"),
                 rs.getBoolean("activo"));
     }
+
+    public boolean existeCodigo(String codigo, Integer idExcluir) throws SQLException {
+        String sql = "SELECT COUNT(*) FROM producto WHERE LOWER(codigo) = LOWER(?)";
+        if(idExcluir!=null){
+            sql += " AND id != ?";
+        }
+        try (Connection con = ConexionDB.getConexion();
+             PreparedStatement ps = con.prepareStatement(sql)) {
+            ps.setString(1, codigo);
+            if(idExcluir!=null){
+                ps.setInt(2, idExcluir);
+            }
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    return rs.getInt(1) > 0;
+                }
+            }
+        }
+        return false;
+    }
 }

@@ -85,4 +85,37 @@ public class CategoriaDAO {
             ps.executeUpdate();
         }
     }
+
+    public boolean existeNombre(String nombre, Integer idExcluir) throws SQLException {
+        String sql = """
+        SELECT COUNT(*) FROM Categoria WHERE LOWER(nombre) = LOWER(?)
+        """;
+
+        try (
+                Connection cn = ConexionDB.getConexion();
+                PreparedStatement ps = cn.prepareStatement(sql)
+        ) {
+            ps.setString(1, nombre);
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    return rs.getInt(1) > 0;
+                }
+            }
+        }
+        return false;
+    }
+
+    public boolean tieneProductos(int categoriaId) throws SQLException {
+        String sql = "SELECT COUNT(*) FROM producto WHERE categoria_id = ?";
+        try (Connection con = ConexionDB.getConexion();
+             PreparedStatement ps = con.prepareStatement(sql)) {
+            ps.setInt(1, categoriaId);
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    return rs.getInt(1) > 0;
+                }
+            }
+        }
+        return false;
+    }
 }
